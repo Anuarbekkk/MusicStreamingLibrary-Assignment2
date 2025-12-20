@@ -3,7 +3,7 @@ package com.example.musiclibrary;
 public class Main {
     public static void main(String[] args) {
 
-        Artist a1 = new Artist("The Weeknd", "Pop/R&B");
+        Artist a1 = new Artist("The Weekend", "Pop/R&B");
         Artist a2 = new Artist("The Weeknd", "Pop/R&B");
         Artist a3 = new Artist("Daft Punk", "Electronic");
 
