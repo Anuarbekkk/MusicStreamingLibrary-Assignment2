@@ -2,30 +2,30 @@ package com.example.musiclibrary;
 
 import java.util.Objects;
 
-public class Song {
-    private String title;
+public class Song extends AudioContent {
     private Artist artist;
-    private int durationSec;
 
     public Song(String title, Artist artist, int durationSec) {
-        this.title = title;
+        super(title, durationSec);
         this.artist = artist;
-        this.durationSec = durationSec;
     }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
+    public Artist getArtist() {
+        return artist;
+    }
 
-    public Artist getArtist() { return artist; }
-    public void setArtist(Artist artist) { this.artist = artist; }
+    public void setArtist(Artist artist) {
+        this.artist = artist;
+    }
 
-    public int getDurationSec() { return durationSec; }
-    public void setDurationSec(int durationSec) { this.durationSec = durationSec; }
+    @Override
+    public void play() {
+        System.out.println("Playing song: " + title + " by " + artist.getName());
+    }
 
     @Override
     public String toString() {
-        return "Song{title='" + title + "', artist=" + artist +
-                ", durationSec=" + durationSec + "}";
+        return "Song{title='" + title + "', artist=" + artist + ", durationSec=" + durationSec + "}";
     }
 
     @Override

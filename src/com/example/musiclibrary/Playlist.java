@@ -1,6 +1,7 @@
 package com.example.musiclibrary;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,12 +14,49 @@ public class Playlist {
         this.songs = new ArrayList<>();
     }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    // Encapsulation (get/set)
+    public String getName() {
+        return name;
+    }
 
-    public List<Song> getSongs() { return songs; }
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public void addSong(Song song) { songs.add(song); }
+    public List<Song> getSongs() {
+        return songs;
+    }
+
+    // Data pool action: add song
+    public void addSong(Song song) {
+        songs.add(song);
+    }
+
+    // Searching
+    public Song findSongByTitle(String title) {
+        for (Song song : songs) {
+            if (song.getTitle().equalsIgnoreCase(title)) {
+                return song;
+            }
+        }
+        return null;
+    }
+
+    // Filtering
+    public List<Song> filterByArtist(String artistName) {
+        List<Song> result = new ArrayList<>();
+        for (Song song : songs) {
+            if (song.getArtist().getName().equalsIgnoreCase(artistName)) {
+                result.add(song);
+            }
+        }
+        return result;
+    }
+
+    // Sorting
+    public void sortByDuration() {
+        songs.sort(Comparator.comparingInt(Song::getDurationSec));
+    }
 
     @Override
     public String toString() {
