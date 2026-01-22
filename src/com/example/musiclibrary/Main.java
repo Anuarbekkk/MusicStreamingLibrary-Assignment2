@@ -1,5 +1,10 @@
 package com.example.musiclibrary;
 
+import com.example.musiclibrary.db.ArtistDao;
+import com.example.musiclibrary.db.SongDao;
+
+import java.sql.SQLException;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -44,5 +49,34 @@ public class Main {
         // Equals demo
         System.out.println("\n=== Equals demo ===");
         System.out.println("a1 equals a2? " + a1.equals(a2));
+
+        // ===== DB DEMO (Assignment 3) =====
+        try {
+            ArtistDao artistDao = new ArtistDao();
+            SongDao songDao = new SongDao();
+
+            System.out.println("\n=== DB: INSERT ===");
+            int weekndId = artistDao.createArtist("The Weeknd", "Pop/R&B");
+            int daftId = artistDao.createArtist("Daft Punk", "Electronic");
+
+            int song1Id = songDao.createSong("Blinding Lights", 200, weekndId);
+            int song2Id = songDao.createSong("Get Lucky", 248, daftId);
+
+            System.out.println("\n=== DB: SELECT ===");
+            System.out.println(artistDao.getAllArtists());
+            System.out.println(songDao.getAllSongs());
+
+            System.out.println("\n=== DB: UPDATE ===");
+            artistDao.updateArtistGenre(weekndId, "R&B");
+            songDao.updateSongDuration(song1Id, 210);
+            System.out.println(songDao.getAllSongs());
+
+            System.out.println("\n=== DB: DELETE ===");
+            songDao.deleteSong(song2Id);
+            System.out.println(songDao.getAllSongs());
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
