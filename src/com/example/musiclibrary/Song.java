@@ -20,7 +20,7 @@ public class Song extends AudioContent {
 
     @Override
     public void play() {
-        System.out.println("Playing song: " + title + " by " + artist.getName());
+        System.out.println("Playing: " + title + " by " + artist.getName());
     }
 
     @Override
