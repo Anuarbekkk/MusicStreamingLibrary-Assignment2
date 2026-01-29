@@ -50,7 +50,7 @@ public class Main {
         System.out.println("\n=== Equals demo ===");
         System.out.println("a1 equals a2? " + a1.equals(a2));
 
-        // ===== DB DEMO (Assignment 3) =====
+
         try {
             ArtistDao artistDao = new ArtistDao();
             SongDao songDao = new SongDao();
