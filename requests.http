@@ -1,0 +1,33 @@
+### Health (optional)
+GET http://localhost:8080/health
+
+### Get artists
+GET http://localhost:8080/api/artists
+
+### Create artist
+POST http://localhost:8080/api/artists
+Content-Type: application/json
+
+{
+  "name": "Drake",
+  "genre": "Hip-Hop"
+}
+
+### Get songs
+GET http://localhost:8080/api/songs
+
+### Create song
+POST http://localhost:8080/api/songs
+Content-Type: application/json
+
+{
+  "title": "God's Plan",
+  "durationSec": 198,
+  "artistId": 3
+}
+
+### Search songs
+GET http://localhost:8080/api/songs/search?q=light
+
+### Sorted songs
+GET http://localhost:8080/api/songs/sorted
